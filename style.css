@@ -1,0 +1,420 @@
+/* Додай це на початок файлу */
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    min-height: 100vh;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.hidden {
+    display: none !important;
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+/* Решта твого CSS для .container, .card та .privacy-container залишається такою ж */
+/* =========================================
+   1. ЗАГАЛЬНІ НАЛАШТУВАННЯ
+========================================= */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color: #7f7cff;
+    --bg-gradient-1: #7f7cff;
+    --bg-gradient-2: #b8c6ff;
+    --text-main: #2b2c48;
+    --text-muted: #6f6f7b;
+    --white: #ffffff;
+    --black: #000000;
+    --card-radius: 14px;
+    --blue-accent: #1089d3;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Jost", sans-serif;
+    background: linear-gradient(135deg, var(--bg-gradient-1), var(--bg-gradient-2));
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px;
+    color: var(--text-main);
+}
+
+/* =========================================
+   2. ФОРМА ВХОДУ (SIGN IN)
+========================================= */
+.container {
+    max-width: 350px;
+    background: linear-gradient(0deg, #fff 0%, #f4f7fb 100%);
+    border-radius: 40px;
+    padding: 25px 35px;
+    border: 5px solid #fff;
+    box-shadow: rgba(133, 189, 215, 0.88) 0px 30px 30px -20px;
+}
+
+.heading {
+    text-align: center;
+    font-weight: 900;
+    font-size: 30px;
+    color: var(--blue-accent);
+}
+
+.form {
+    margin-top: 20px;
+}
+
+.form .input {
+    width: 100%;
+    background: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 20px;
+    margin-top: 15px;
+    box-shadow: #cff0ff 0px 10px 10px -5px;
+    border-inline: 2px solid transparent;
+    outline: none;
+}
+
+.form .input:focus {
+    border-inline: 2px solid #12B1D1;
+}
+
+.form .forgot-password {
+    display: block;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.form .forgot-password a {
+    font-size: 11px;
+    color: #0099ff;
+    text-decoration: none;
+}
+
+.form .login-button {
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    background: linear-gradient(45deg, #1089d3 0%, #12b1d1 100%);
+    color: white;
+    padding: 15px;
+    margin: 20px auto;
+    border-radius: 20px;
+    box-shadow: rgba(133, 189, 215, 0.88) 0px 20px 10px -15px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.form .login-button:hover {
+    transform: scale(1.03);
+}
+
+.social-account-container {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.social-account-container .title {
+    display: block;
+    font-size: 10px;
+    color: #aaa;
+    margin-bottom: 10px;
+}
+
+.social-accounts {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-button {
+    background: linear-gradient(45deg, #000 0%, #707070 100%);
+    border: 5px solid white;
+    padding: 5px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-content: center;
+    box-shadow: rgba(133, 189, 215, 0.88) 0px 12px 10px -8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.social-button svg {
+    fill: white;
+    width: 15px;
+}
+
+.social-button:hover {
+    transform: scale(1.2);
+}
+
+.agreement {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.agreement a {
+    text-decoration: none;
+    color: #0099ff;
+    font-size: 9px;
+}
+
+/* =========================================
+   3. ВІЗИТКА (PROFILE CARD)
+========================================= */
+.card {
+    width: 340px;
+    background: var(--white);
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+    position: relative;
+}
+
+.card-header {
+    position: relative;
+    height: 200px;
+    text-align: center;
+}
+
+.card-cover {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=600&q=80');
+    background-size: cover;
+    background-position: center;
+    filter: blur(2px) brightness(0.9);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    height: 100%;
+}
+
+.card-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 4px solid var(--white);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    z-index: 2;
+}
+
+.card-fullname {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    font-size: 22px;
+    font-weight: 700;
+    z-index: 2;
+}
+
+.card-jobtitle {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    font-size: 13px;
+    opacity: 0.7;
+    text-transform: uppercase;
+}
+
+.card-main {
+    padding: 20px 24px 10px;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-section {
+    display: none;
+}
+
+.card-section.is-active {
+    display: block;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.card-section h3 {
+    font-size: 12px;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+}
+
+.card-section p, .card-section li {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.card-buttons {
+    display: flex;
+    margin-top: auto;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 10px;
+}
+
+.card-buttons button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.card-buttons button.is-active {
+    color: var(--primary-color);
+}
+
+/* Ефект Очей */
+.creepy-btn {
+    margin-top: 20px;
+    padding: 14px 20px;
+    width: 100%;
+    background: var(--black);
+    color: var(--white);
+    border-radius: 30px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.creepy-btn__eyes {
+    position: absolute;
+    right: 24px;
+    display: flex;
+    gap: 8px;
+}
+
+.creepy-btn__eye {
+    width: 14px;
+    height: 14px;
+    background: white;
+    border-radius: 50%;
+    position: relative;
+    animation: blink 2s infinite;
+}
+
+.creepy-btn__pupil {
+    width: 6px;
+    height: 6px;
+    background: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+}
+
+/* =========================================
+   4. PRIVACY CARD (БЕЗ TAILWIND)
+========================================= */
+.privacy-container {
+    max-width: 300px;
+    background: white;
+    border-radius: 1rem;
+    padding: 35px 24px 24px;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+.privacy-svg-wrapper {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.privacy-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #3f3f46;
+    text-align: left;
+}
+
+.privacy-text {
+    font-size: 13px;
+    color: #71717a;
+    text-align: justify;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.privacy-text a {
+    color: #634647;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.btn-options {
+    background: none;
+    border: none;
+    color: #52525b;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.btn-options:hover {
+    color: #634647;
+}
+
+.btn-accept {
+    float: right;
+    background: #ddad81;
+    color: #634647;
+    border: none;
+    padding: 8px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-accept:hover {
+    background: #634647;
+    color: #ddad81;
+}
+
+/* =========================================
+   5. АНІМАЦІЇ
+========================================= */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: none; }
+}
+
+@keyframes blink {
+    0%, 90%, 100% { height: 14px; }
+    95% { height: 2px; }
+}

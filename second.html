@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Співпраця - Микита Шевчук</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> <style>
+        /* Додаткові стилі спеціально для другої сторінки */
+        .glass-header {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .logo { font-weight: 700; font-size: 24px; color: #fff; }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            margin-left: 20px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { opacity: 0.7; }
+
+        .content-wrapper {
+            max-width: 800px;
+            width: 100%;
+            display: grid;
+            gap: 30px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-card:hover { transform: translateY(-10px); }
+
+        .service-card .icon { font-size: 40px; margin-bottom: 15px; }
+
+        .contact-section {
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .contact-section h2 { margin-bottom: 20px; color: var(--primary-color); }
+
+        .contact-form {
+            display: grid;
+            gap: 15px;
+        }
+
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: 15px;
+            border: 1px solid #ddd;
+            font-family: inherit;
+            min-height: 100px;
+        }
+
+        footer {
+            margin-top: 50px;
+            color: white;
+            font-size: 13px;
+            text-align: center;
+            opacity: 0.8;
+        }
+        .github-shortcut {
+    margin-bottom: 25px;
+    padding: 15px;
+    background: #f4f7fb;
+    border-radius: 12px;
+    border-left: 4px solid #2b2c48;
+}
+
+.github-shortcut p {
+    font-size: 14px;
+    color: #6f6f7b;
+}
+
+.github-link {
+    color: #1089d3;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px dashed #1089d3;
+    transition: 0.3s;
+}
+
+.github-link:hover {
+    color: #7f7cff;
+    border-bottom-style: solid;
+}
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+.social {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    text-decoration: none;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.35);
+    transition: 0.35s ease;
+}
+
+.social:hover {
+    transform: translateY(-5px) scale(1.08);
+}
+
+/* Індивідуальні кольори */
+.social.telegram:hover {
+    background: #229ED9;
+    color: #fff;
+}
+
+.social.viber:hover {
+    background: #7360F2;
+    color: #fff;
+}
+
+.social.youtube:hover {
+    background: #FF0000;
+    color: #fff;
+}
+
+    </style>
+</head>
+<body style="flex-direction: column; align-items: center; padding: 20px;">
+
+    <header class="glass-header">
+        <div class="logo">МШ.</div>
+        <nav class="nav-links">
+            <a href="index.html">← На головну</a>
+            <a href="#services">Послуги</a>
+            <a href="#contact">Контакти</a>
+        </nav>
+    </header>
+
+    <main class="content-wrapper">
+        
+        <section id="services" class="services-grid">
+            <div class="service-card">
+                <div class="icon">💻</div>
+                <h3>Frontend</h3>
+                <p>Створення сучасних інтерфейсів на HTML, CSS та JS.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon">✨</div>
+                <h3>UI Animation</h3>
+                <p>Живі елементи, які роблять ваш сайт особливим.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon">📱</div>
+                <h3>Adaptive</h3>
+                <p>Коректне відображення на всіх типах пристроїв.</p>
+            </div>
+        </section>
+
+<section id="contact" class="contact-section">
+    <h2>Давайте працювати!</h2>
+    
+    <div class="github-shortcut">
+        <p>Маєте проект? Напишіть мені в <a href="https://github.com/samurai-nikit" target="_blank" class="github-link">GitHub Issues</a> або заповніть форму нижче:</p>
+    </div>
+
+    <form class="contact-form">
+        <input class="input" type="text" placeholder="Ваше ім'я" required>
+        <input class="input" type="email" placeholder="Ваш Email" required>
+        <textarea placeholder="Опишіть ваше замовлення або ідею..."></textarea>
+        
+        <button type="button" class="creepy-btn" id="creepy-main-btn" style="width: 100%;">
+            <span class="creepy-btn__eyes">
+                <span class="creepy-btn__eye"><span class="creepy-btn__pupil"></span></span>
+                <span class="creepy-btn__eye"><span class="creepy-btn__pupil"></span></span>
+            </span>
+            <span class="creepy-btn__cover">ВІДПРАВИТИ</span>
+        </button>
+    </form>
+</section>
+
+    </main>
+
+    <footer>
+        <div class="social-links">
+    <a href="https://t.me/USERNAME" target="_blank" aria-label="Telegram" class="social telegram">✈️</a>
+    <a href="viber://chat?number=%2B380XXXXXXXXX" aria-label="Viber" class="social viber">📞</a>
+    <a href="https://www.youtube.com/@USERNAME" target="_blank" aria-label="YouTube" class="social youtube">▶️</a>
+</div>
+
+        <p>&copy; 2026 Микита Шевчук. Зроблено в Україні 🇺🇦</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
